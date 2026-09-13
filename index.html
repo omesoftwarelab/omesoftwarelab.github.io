@@ -1,89 +1,158 @@
 <!DOCTYPE html>
+
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lemonade</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            line-height: 1.8;
-            color: #333;
-        }
 
-        h1 {
-            border-bottom: 2px solid #333;
-            padding-bottom: 10px;
-        }
 
-        h2 {
-            margin-top: 40px;
-        }
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        line-height: 1.8;
+        color: #333;
+    }
 
-        a {
-            color: #06c;
-        }
+    h1 {
+        border-bottom: 2px solid #333;
+        padding-bottom: 10px;
+    }
 
-        .project {
-            margin: 20px 0;
-            padding: 15px;
-            border-left: 4px solid #ccc;
-        }
+    h2 {
+        margin-top: 45px;
+    }
 
-        footer {
-            margin-top: 60px;
-            color: #777;
-            font-size: 0.9em;
-        }
-    </style>
+    a {
+        color: #06c;
+    }
+
+    .project {
+        margin: 25px 0;
+        padding: 20px;
+        border-left: 4px solid #ccc;
+    }
+
+    .project-image {
+        display: block;
+        width: 100%;
+        max-width: 700px;
+        height: auto;
+        margin: 20px 0;
+        border: 1px solid #ddd;
+    }
+
+    .github-button {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 8px 14px;
+        background: #333;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+    }
+
+    footer {
+        margin-top: 60px;
+        padding-top: 20px;
+        border-top: 1px solid #ddd;
+        color: #777;
+        font-size: 0.9em;
+    }
+</style>
+
+
 </head>
 
 <body>
 
-    <h1>Lemonade</h1>
+
+<h1>Lemonade</h1>
+
+<p>
+    Welcome to my personal website.
+</p>
+
+<h2>About</h2>
+
+<p>
+    This website is a personal space for sharing my software development
+    projects, programming experiments, and technical work.
+</p>
+
+<h2>Projects</h2>
+
+<div class="project">
+    <h3>Video Blur Tool</h3>
 
     <p>
-        Welcome to my personal website.
+        A web-based tool for applying mosaic or Gaussian blur to selected
+        areas of video. It can be used to obscure faces, license plates,
+        or other sensitive areas in video footage.
     </p>
 
-    <h2>About</h2>
+    <img
+        src="images/video-blur.png"
+        alt="Video Blur Tool with a mosaic area applied to an image"
+        class="project-image"
+    >
 
     <p>
-        This website is a personal space for sharing my software development
-        projects, programming experiments, and technical work.
+        The project is developed with Python, Flask, OpenCV, JavaScript,
+        HTML, and CSS.
     </p>
 
-    <h2>Projects</h2>
+    <a
+        href="https://github.com/omesoftwarelab/video-blur-tool"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="github-button"
+    >
+        View on GitHub
+    </a>
+</div>
 
-    <div class="project">
-        <h3>Raspberry Pi Projects</h3>
-        <p>
-            Experiments and applications using Raspberry Pi,
-            Python, GPIO, sensors, and network services.
-        </p>
-    </div>
-
-    <div class="project">
-        <h3>Web Development</h3>
-        <p>
-            Development of web applications using HTML, CSS, JavaScript,
-            PHP, Python, and related technologies.
-        </p>
-    </div>
-
-    <h2>GitHub</h2>
+<div class="project">
+    <h3>Raspberry Pi Projects</h3>
 
     <p>
-        My source code and development projects are available on
-        <a href="https://github.com/" target="_blank">GitHub</a>.
+        Experiments and applications using Raspberry Pi, Python, GPIO,
+        sensors, cameras, and network services.
     </p>
+</div>
 
-    <footer>
-        <p>© 2026 Lemonade</p>
-    </footer>
+<div class="project">
+    <h3>Web Development</h3>
+
+    <p>
+        Development of web applications using HTML, CSS, JavaScript,
+        PHP, Python, and related technologies.
+    </p>
+</div>
+
+<h2>GitHub</h2>
+
+<p>
+    My source code and development projects are available on GitHub.
+</p>
+
+<p>
+    <a
+        href="https://github.com/omesoftwarelab"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        github.com/omesoftwarelab
+    </a>
+</p>
+
+<footer>
+    <p>© 2026 Lemonade</p>
+</footer>
+
 
 </body>
 </html>
