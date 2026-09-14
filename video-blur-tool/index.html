@@ -1,0 +1,791 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Video Blur Tool | インストール・使い方</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family:
+                -apple-system, BlinkMacSystemFont,
+                "Segoe UI", "Noto Sans JP", sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: #f5f7fa;
+        }
+
+        header {
+            padding: 50px 20px;
+            text-align: center;
+            color: white;
+            background: #263b52;
+        }
+
+        header h1 {
+            margin: 0 0 10px;
+            font-size: 2.2rem;
+        }
+
+        header p {
+            margin: 0;
+            color: #dce6f0;
+        }
+
+        nav {
+            padding: 15px 20px;
+            text-align: center;
+            background: white;
+            border-bottom: 1px solid #ddd;
+        }
+
+        nav a {
+            margin: 0 12px;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            margin-bottom: 30px;
+            padding: 28px;
+            background: white;
+            border: 1px solid #e1e5eb;
+            border-radius: 10px;
+        }
+
+        h2 {
+            margin-top: 0;
+            padding-bottom: 10px;
+            color: #263b52;
+            border-bottom: 2px solid #e5eaf0;
+        }
+
+        h3 {
+            margin-top: 25px;
+            color: #374f68;
+        }
+
+        a {
+            color: #2563eb;
+        }
+
+        .button {
+            display: inline-block;
+            margin: 8px 5px 8px 0;
+            padding: 10px 18px;
+            color: white;
+            background: #2563eb;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background: #1d4ed8;
+        }
+
+        .note {
+            margin: 20px 0;
+            padding: 15px 18px;
+            background: #fff8e1;
+            border-left: 4px solid #eab308;
+        }
+
+        .info {
+            margin: 20px 0;
+            padding: 15px 18px;
+            background: #eef6ff;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .step {
+            margin: 20px 0;
+            padding: 18px;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+
+        .step h3 {
+            margin-top: 0;
+        }
+
+        code {
+            padding: 2px 6px;
+            color: #be185d;
+            background: #f1f5f9;
+            border-radius: 4px;
+        }
+
+        pre {
+            padding: 16px;
+            overflow-x: auto;
+            color: #e2e8f0;
+            background: #1e293b;
+            border-radius: 6px;
+            line-height: 1.5;
+        }
+
+        pre code {
+            padding: 0;
+            color: inherit;
+            background: none;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #dbe2ea;
+        }
+
+        th {
+            background: #f1f5f9;
+        }
+
+        .feature-list li {
+            margin: 5px 0;
+        }
+
+        footer {
+            padding: 30px 20px;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.7rem;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 4px 8px;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Video Blur Tool</h1>
+    <p>動画内の白色部分を自動検出して、モザイクやぼかしをかけるツール</p>
+</header>
+
+<nav>
+    <a href="#about">概要</a>
+    <a href="#install">インストール</a>
+    <a href="#usage">使い方</a>
+    <a href="#settings">設定</a>
+    <a href="#faq">よくある質問</a>
+</nav>
+
+<main>
+
+    <section id="about">
+        <h2>Video Blur Toolとは？</h2>
+
+        <p>
+            Video Blur Toolは、動画の中にある白色部分を自動的に検出し、
+            指定した範囲にモザイクやガウシアンぼかしをかける
+            Webアプリケーションです。
+        </p>
+
+        <p>
+            オンラインゲームのプレイヤーネームなど、
+            白色で表示される文字を隠す用途を想定して開発されています。
+        </p>
+
+        <div class="info">
+            <strong>このツールの特徴</strong><br>
+            動画をブラウザで読み込み、処理前のプレビューを確認してから
+            ぼかし処理を実行できます。
+        </div>
+
+        <h3>主な機能</h3>
+
+        <ul class="feature-list">
+            <li>MP4・MKV動画の読み込み</li>
+            <li>動画内の白色部分の自動検出</li>
+            <li>モザイク処理</li>
+            <li>ガウシアンぼかし</li>
+            <li>白色判定の調整</li>
+            <li>ぼかしをかけない除外範囲の指定</li>
+            <li>強制的にぼかす範囲の指定</li>
+            <li>指定した枠をクリックして削除</li>
+            <li>処理前のプレビュー</li>
+            <li>処理状況のプログレスバー</li>
+            <li>元動画の音声を保持</li>
+            <li>処理後の動画の再生・保存</li>
+        </ul>
+
+        <p>
+            <a class="button"
+               href="https://github.com/omesoftwarelab/video-blur-tool"
+               target="_blank"
+               rel="noopener">
+                GitHubリポジトリ
+            </a>
+        </p>
+    </section>
+
+
+    <section id="requirements">
+        <h2>動作環境</h2>
+
+        <p>以下のソフトウェアが必要です。</p>
+
+        <table>
+            <tr>
+                <th>項目</th>
+                <th>必要なもの</th>
+            </tr>
+            <tr>
+                <td>OS</td>
+                <td>Windows、Linuxなど</td>
+            </tr>
+            <tr>
+                <td>Python</td>
+                <td>3.10以降</td>
+            </tr>
+            <tr>
+                <td>FFmpeg</td>
+                <td>インストールおよびPATHの設定が必要</td>
+            </tr>
+            <tr>
+                <td>ブラウザ</td>
+                <td>Chrome、EdgeなどのWebブラウザ</td>
+            </tr>
+        </table>
+
+        <h3>使用しているPythonパッケージ</h3>
+
+        <ul>
+            <li>Flask</li>
+            <li>OpenCV</li>
+            <li>NumPy</li>
+        </ul>
+
+        <div class="note">
+            <strong>注意：</strong>
+            動画の解像度や長さによって、処理に時間がかかる場合があります。
+        </div>
+    </section>
+
+
+    <section id="install">
+        <h2>インストール方法（Windows）</h2>
+
+        <p>
+            ここでは、WindowsにVideo Blur Toolをインストールする手順を説明します。
+        </p>
+
+        <div class="step">
+            <h3>Step 1：Pythonをインストールする</h3>
+
+            <p>
+                まず、Pythonをインストールします。
+            </p>
+
+            <p>
+                <a href="https://www.python.org/downloads/"
+                   target="_blank"
+                   rel="noopener">
+                    Python公式ダウンロードページ
+                </a>
+            </p>
+
+            <ol>
+                <li>Pythonの公式サイトを開きます。</li>
+                <li>Windows用のPythonをダウンロードします。</li>
+                <li>ダウンロードしたインストーラーを実行します。</li>
+                <li>
+                    インストール画面で
+                    <strong>Add Python to PATH</strong>
+                    にチェックを入れます。
+                </li>
+                <li>Install Nowをクリックします。</li>
+            </ol>
+
+            <p>
+                インストールが終わったら、コマンドプロンプトを開き、
+                次のコマンドを実行します。
+            </p>
+
+            <pre><code>python --version</code></pre>
+
+            <p>
+                Pythonのバージョンが表示されれば、インストール完了です。
+            </p>
+        </div>
+
+
+        <div class="step">
+            <h3>Step 2：FFmpegをインストールする</h3>
+
+            <p>
+                Video Blur Toolでは、動画の読み込みや出力にFFmpegを使用します。
+            </p>
+
+            <p>
+                <a href="https://ffmpeg.org/download.html"
+                   target="_blank"
+                   rel="noopener">
+                    FFmpeg公式ダウンロードページ
+                </a>
+            </p>
+
+            <ol>
+                <li>FFmpegをダウンロードします。</li>
+                <li>任意の場所に展開します。</li>
+                <li>FFmpegの実行ファイルがあるフォルダーをPATHに追加します。</li>
+            </ol>
+
+            <p>
+                設定後、コマンドプロンプトで次のコマンドを実行します。
+            </p>
+
+            <pre><code>ffmpeg -version</code></pre>
+
+            <p>続けて、次のコマンドも実行します。</p>
+
+            <pre><code>ffprobe -version</code></pre>
+
+            <p>
+                バージョン情報が表示されれば、FFmpegの設定は完了です。
+            </p>
+
+            <div class="note">
+                <strong>PATHとは？</strong><br>
+                コマンドプロンプトから、FFmpegなどのプログラムを
+                フォルダー名を指定せずに実行できるようにする設定です。
+            </div>
+        </div>
+
+
+        <div class="step">
+            <h3>Step 3：リポジトリをダウンロードする</h3>
+
+            <p>
+                GitHubからVideo Blur Toolのプログラムを取得します。
+            </p>
+
+            <p>
+                <a href="https://github.com/omesoftwarelab/video-blur-tool"
+                   target="_blank"
+                   rel="noopener">
+                    Video Blur ToolのGitHubページ
+                </a>
+            </p>
+
+            <h4>方法A：ZIPファイルでダウンロードする</h4>
+
+            <ol>
+                <li>GitHubページを開きます。</li>
+                <li>緑色の<strong>Code</strong>ボタンをクリックします。</li>
+                <li><strong>Download ZIP</strong>を選択します。</li>
+                <li>ダウンロードしたZIPファイルを展開します。</li>
+            </ol>
+
+            <h4>方法B：Gitを使ってダウンロードする</h4>
+
+            <p>
+                Gitをインストール済みの場合は、次のコマンドでも取得できます。
+            </p>
+
+            <pre><code>git clone https://github.com/omesoftwarelab/video-blur-tool.git
+cd video-blur-tool</code></pre>
+        </div>
+
+
+        <div class="step">
+            <h3>Step 4：必要なPythonパッケージをインストールする</h3>
+
+            <p>
+                コマンドプロンプトを開き、Video Blur Toolのフォルダーへ移動します。
+            </p>
+
+            <p>
+                そのフォルダーで、次のコマンドを実行します。
+            </p>
+
+            <pre><code>pip install -r requirements.txt</code></pre>
+
+            <p>
+                Flask、OpenCV、NumPyなどの必要なパッケージがインストールされます。
+            </p>
+
+            <div class="info">
+                <strong>ポイント：</strong>
+                <code>requirements.txt</code>があるフォルダーで
+                コマンドを実行してください。
+            </div>
+        </div>
+
+
+        <div class="step">
+            <h3>Step 5：Video Blur Toolを起動する</h3>
+
+            <h4>Windowsの場合</h4>
+
+            <p>
+                Video Blur Toolのフォルダーにある
+                <code>run.bat</code>をダブルクリックします。
+            </p>
+
+            <p>
+                または、コマンドプロンプトから次のコマンドを実行します。
+            </p>
+
+            <pre><code>python app.py</code></pre>
+
+            <p>
+                起動後、Webブラウザで次のアドレスを開きます。
+            </p>
+
+            <pre><code>http://127.0.0.1:5000</code></pre>
+
+            <p>
+                Video Blur Toolの画面が表示されれば、起動完了です。
+            </p>
+        </div>
+    </section>
+
+
+    <section id="usage">
+        <h2>基本的な使い方</h2>
+
+        <p>
+            Video Blur Toolでは、動画を読み込み、ぼかし範囲を設定してから
+            動画を処理します。
+        </p>
+
+        <div class="step">
+            <h3>1. 動画を選択する</h3>
+
+            <p>
+                Video Blur Toolをブラウザで開き、
+                動画ファイルを選択します。
+            </p>
+
+            <p>
+                対応形式は主にMP4とMKVです。
+            </p>
+        </div>
+
+
+        <div class="step">
+            <h3>2. プレビューを確認する</h3>
+
+            <p>
+                動画が読み込まれると、最初のフレームが自動的に表示されます。
+            </p>
+
+            <p>
+                白色部分の検出結果を確認し、必要に応じて設定を調整します。
+            </p>
+        </div>
+
+
+        <div class="step">
+            <h3>3. ぼかし範囲を指定する</h3>
+
+            <p>次の2種類の範囲を指定できます。</p>
+
+            <h4>除外範囲を追加</h4>
+
+            <p>
+                白色部分として検出された場所でも、
+                ぼかしをかけたくない範囲を指定します。
+            </p>
+
+            <h4>強制ぼかし範囲を追加</h4>
+
+            <p>
+                白色として検出されなかった場所でも、
+                必ずぼかしをかけたい範囲を指定します。
+            </p>
+
+            <p>
+                ボタンを選択したあと、動画上をマウスでドラッグして
+                範囲を指定します。
+            </p>
+
+            <div class="info">
+                <strong>範囲の削除：</strong>
+                追加した枠をクリックすると、その枠を削除できます。
+            </div>
+        </div>
+
+
+        <div class="step">
+            <h3>4. ぼかしの設定を変更する</h3>
+
+            <p>
+                白色検出の設定や、ぼかし方式を調整します。
+            </p>
+
+            <p>
+                設定を変更した場合は、
+                <strong>プレビュー更新</strong>を押して結果を確認します。
+            </p>
+        </div>
+
+
+        <div class="step">
+            <h3>5. 動画の処理を開始する</h3>
+
+            <p>
+                設定が終わったら、<strong>処理開始</strong>を押します。
+            </p>
+
+            <p>
+                処理中はプログレスバーで進行状況を確認できます。
+            </p>
+        </div>
+
+
+        <div class="step">
+            <h3>6. 完成した動画を確認・保存する</h3>
+
+            <p>
+                処理が完了したら、
+                <strong>完成動画を開く</strong>から動画を確認します。
+            </p>
+
+            <p>
+                問題がなければ、ブラウザから動画を保存できます。
+            </p>
+        </div>
+    </section>
+
+
+    <section id="settings">
+        <h2>ぼかし設定の説明</h2>
+
+        <h3>白色検出</h3>
+
+        <p>
+            動画の各フレームから白色部分を検出し、
+            検出された範囲にぼかしをかけます。
+        </p>
+
+        <p>次の項目を調整できます。</p>
+
+        <ul>
+            <li>白色の下限</li>
+            <li>白色の上限</li>
+            <li>色差</li>
+        </ul>
+
+        <p>
+            白色の文字が検出されない場合や、
+            不要な場所まで検出される場合は設定を調整してください。
+        </p>
+
+
+        <h3>除外範囲</h3>
+
+        <p>
+            白色として検出された場所でも、
+            指定した範囲にはぼかしをかけません。
+        </p>
+
+        <p>
+            ぼかしたくない白色の文字や画面表示がある場合に使用します。
+        </p>
+
+
+        <h3>強制ぼかし範囲</h3>
+
+        <p>
+            白色として検出されなかった場所でも、
+            指定した範囲にはぼかしをかけます。
+        </p>
+
+        <p>
+            自動検出されない文字やオブジェクトを隠したい場合に使用します。
+        </p>
+
+
+        <h3>ぼかし方式</h3>
+
+        <table>
+            <tr>
+                <th>方式</th>
+                <th>説明</th>
+            </tr>
+            <tr>
+                <td>モザイク</td>
+                <td>
+                    画像を縮小してから拡大することで、
+                    モザイク状に加工します。
+                </td>
+            </tr>
+            <tr>
+                <td>ガウシアンぼかし</td>
+                <td>
+                    OpenCVのGaussian Blurを使用して、
+                    滑らかにぼかします。
+                </td>
+            </tr>
+        </table>
+
+        <div class="info">
+            <strong>おすすめ：</strong>
+            文字を隠す目的では、まずモザイク方式を試してみてください。
+            動画の内容に合わせて方式を選択できます。
+        </div>
+    </section>
+
+
+    <section id="faq">
+        <h2>よくある質問・トラブル対策</h2>
+
+        <h3>Q. Pythonが見つからないと表示される</h3>
+
+        <p>
+            Pythonがインストールされているか確認してください。
+            また、インストール時に「Add Python to PATH」に
+            チェックを入れたか確認してください。
+        </p>
+
+        <pre><code>python --version</code></pre>
+
+        <h3>Q. FFmpegが見つからないと表示される</h3>
+
+        <p>
+            FFmpegがインストールされているか確認し、
+            PATHが正しく設定されているか確認してください。
+        </p>
+
+        <pre><code>ffmpeg -version
+ffprobe -version</code></pre>
+
+        <h3>Q. 動画の処理に時間がかかる</h3>
+
+        <p>
+            動画の長さや解像度によって処理時間は変わります。
+            高解像度・長時間の動画では、処理に時間がかかる場合があります。
+        </p>
+
+        <h3>Q. ぼかしたくない場所までぼかされる</h3>
+
+        <p>
+            白色検出は、映像の内容によって結果が変わります。
+            白色判定の設定を調整するか、
+            除外範囲を指定してください。
+        </p>
+
+        <h3>Q. ぼかしたい場所が検出されない</h3>
+
+        <p>
+            強制ぼかし範囲を追加して、
+            対象の場所を手動で指定してください。
+        </p>
+
+        <h3>Q. 元動画の音声はどうなる？</h3>
+
+        <p>
+            元動画の音声は保持されます。
+            処理後の動画で音声を確認してください。
+        </p>
+
+        <h3>Q. 処理した動画はどこに保存される？</h3>
+
+        <p>
+            処理後の動画は、アプリの出力先に保存されます。
+            ブラウザの「完成動画を開く」から確認・保存できます。
+        </p>
+    </section>
+
+
+    <section id="notes">
+        <h2>注意事項</h2>
+
+        <ul>
+            <li>
+                白色検出は映像の内容によって結果が変わります。
+            </li>
+            <li>
+                自動検出によって、意図しない場所にぼかしがかかる場合があります。
+            </li>
+            <li>
+                処理前にプレビューを確認してください。
+            </li>
+            <li>
+                大きな動画や長時間の動画は、処理に時間がかかる場合があります。
+            </li>
+            <li>
+                <code>tmp</code>や<code>outputs</code>には動画処理用のファイルが保存されます。
+            </li>
+            <li>
+                元動画は処理前にバックアップしておくことをおすすめします。
+            </li>
+        </ul>
+    </section>
+
+
+    <section id="source">
+        <h2>ソースコード・ライセンス</h2>
+
+        <p>
+            Video Blur ToolのソースコードはGitHubで公開されています。
+        </p>
+
+        <p>
+            <a href="https://github.com/omesoftwarelab/video-blur-tool"
+               target="_blank"
+               rel="noopener">
+                https://github.com/omesoftwarelab/video-blur-tool
+            </a>
+        </p>
+
+        <p>
+            ライセンス：MIT License
+        </p>
+    </section>
+
+</main>
+
+<footer>
+    <p>Video Blur Tool — Installation & Usage Guide</p>
+    <p>© 2026 omesoftwarelab</p>
+</footer>
+
+</body>
+</html>
